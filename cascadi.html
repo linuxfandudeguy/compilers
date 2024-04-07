@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cascadi - CSS Playground</title>
+<style id="user-styles">
+  /* Default styles */
+  body {
+    background-color: #222;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+  }
+  textarea {
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    background-color: #444;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    resize: none;
+  }
+  button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #0056b3;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>Cascadi - CSS Playground</h2>
+  <textarea id="cssCode" placeholder="Enter CSS code here"></textarea>
+  <button onclick="applyCSS()">Apply CSS</button>
+</div>
+
+<script>
+  function applyCSS() {
+    try {
+      const cssCode = document.getElementById('cssCode').value;
+      const styleTag = document.createElement('style');
+      styleTag.textContent = cssCode;
+      document.head.appendChild(styleTag);
+    } catch (error) {
+      alert('Error: ' + error.message);
+    }
+  }
+</script>
+</body>
+</html>
